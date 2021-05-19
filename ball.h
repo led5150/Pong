@@ -1,8 +1,8 @@
-
-
 #ifndef _BALL_H_
 #define _BALL_H_
 #include <iostream>
+#include <mutex>
+
 using namespace std;
 class Ball
 {
@@ -11,7 +11,7 @@ class Ball
         Ball();
         ~Ball();
         friend ostream &operator<<( ostream &output, const Ball &B ) { 
-            output << B.ball;
+	    output << B.ball;
             return output; 
         }
 
@@ -35,8 +35,7 @@ class Ball
         int  xvelos;
         int  yvelos;
 
-
-
+        std::mutex ball_lock;
 };
 
 

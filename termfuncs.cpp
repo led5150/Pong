@@ -69,8 +69,8 @@ static int prev_state_stored = 0;
 // getachar
 //  returns a char using noecho and -icanon unless not a tty
 //
-char getachar()
-{
+char getachar(){
+
         char c;
 
         cout << std::flush;
