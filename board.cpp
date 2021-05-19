@@ -102,9 +102,11 @@ void Board::run()
         if (score == 0) {
             player1.set_score(1);
             reset_board();
+            continue;
         } else if (score == 1) {
             player2.set_score(1);
             reset_board();
+            continue;
         }
 
       // if the ball hits a paddle, change the x velocity of the ball to the

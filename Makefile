@@ -14,3 +14,5 @@ pong: pong.cpp board.cpp paddle.cpp termfuncs.cpp ball.cpp
 %.o: %.cpp $(shell echo *.h)
 	${CXX} ${CXXFLAGS} -c $<
 
+clean:
+	rm -r pong *.dSYM

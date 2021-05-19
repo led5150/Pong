@@ -5,8 +5,12 @@
 
 Ball::Ball()
 {
+<<<<<<< HEAD
     ball_lock.lock();
     ball = '.';
+=======
+    ball   = '.';
+>>>>>>> a94bfe9c0bf0fb83fb77813e8061d01617cbaa26
     xvelos = 1;
     yvelos = 1;
     ball_lock.unlock();
