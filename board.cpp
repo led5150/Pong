@@ -44,8 +44,12 @@ void Board::run()
         screen_home();
         print_score();
         print_board();
+
+        // I think the bottle neck is here! With the getachar() function.
         char player1_move = getachar();
         char player2_move = getachar();
+
+        // check the input and move the paddle
         if (player1_move == 'w') {
             player1.move_up();
         } else if (player1_move == 's') {
@@ -56,6 +60,9 @@ void Board::run()
         } else if (player2_move == 'l') {
             player2.move_down(BOARD_H);
         }
+
+        // check if the ball has passed the boundaries of the board. If so 
+        // update the appropriate player score
         int score = ball.score(BOARD_W);
         if (score == 0) {
             player1.set_score(1);
@@ -64,7 +71,14 @@ void Board::run()
             player2.set_score(1);
             reset_board();
         }
+
+        // change the direction of the ball or continue it moving.  Mostly
+        // this concerns not going out of bounds when the ball hits the top
+        // or bottom of the board
         ball.change_dir(BOARD_H, BOARD_W, ball.get_xpos(), ball.get_ypos());
+
+        // if the ball hits a paddle, change the x velocity of the ball to the
+        // opposite direction.
         if (player1.get_x() == ball.get_xpos() and player1.get_y() == ball.get_ypos()) {
             ball.set_xvelos(1);
             ball.set_xpos(player1.get_x() + 1);
@@ -74,7 +88,7 @@ void Board::run()
             ball.set_xpos(player2.get_x() - 1);
         }
         
-        // usleep(10);
+        // usleep(10); // thought I'd need to slow down the loop but not the case!
 
     }
 }
