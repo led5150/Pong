@@ -67,9 +67,11 @@ void Board::run()
         if (score == 0) {
             player1.set_score(1);
             reset_board();
+            continue;
         } else if (score == 1) {
             player2.set_score(1);
             reset_board();
+            continue;
         }
 
         // change the direction of the ball or continue it moving.  Mostly

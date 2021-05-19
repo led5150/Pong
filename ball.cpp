@@ -5,7 +5,7 @@
 
 Ball::Ball()
 {
-    ball = '.';
+    ball   = '.';
     xvelos = 1;
     yvelos = 1;
 }
